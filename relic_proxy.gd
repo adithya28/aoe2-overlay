@@ -11,7 +11,7 @@ extends Node
 #     api_keys.json      -> { "key1": "...", "key2": "..." }
 #     steam_secrets.json -> your SteamAuthenticator secrets
 #
-# The script:
+# The script:s
 # 1. Logs into Steam (with 2FA using GodotSteam).
 # 2. Periodically obtains an encrypted app ticket for Age of Empires II (AppID 813780).
 # 3. Uses that ticket to obtain a Relic session from aoe-api.worldsedgelink.com.
@@ -27,7 +27,7 @@ const LISTEN_PORT: int = 5000
 # ------------------------------------------------------------------
 # State variables
 # ------------------------------------------------------------------
-var steam: SteamClient          # from GodotSteam
+var steam: Steam    # from GodotSteam
 var steam_logged_in: bool = false
 var steam_id_64: String = ""
 var steam_user_name: String = ""
@@ -90,9 +90,6 @@ func _load_config():
 # ------------------------------------------------------------------
 # Steam initialization (using GodotSteam)
 # ------------------------------------------------------------------
-func _initialize_steam():
-	steam = SteamClient.new()
-	add_child(steam)
 
 	# Connect signals
 	steam.connect("steam_connected", Callable(self, "_on_steam_connected"))
@@ -120,7 +117,7 @@ func _on_steam_connected():
 		get_tree().quit()
 
 	# Trigger login (with 2FA code generated internally by GodotSteam)
-	steam.steam_login(steam_account_name, steam_password)
+	steam.
 
 func _on_steam_disconnected():
 	print("[Steam] Disconnected")
