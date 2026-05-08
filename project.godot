@@ -10,13 +10,19 @@ config_version=5
 
 [application]
 
-config/name="Aoe2Overlay"
+config/name="New Game Project"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
-[editor_plugins]
+[display]
 
-enabled=PackedStringArray("res://addons/godotsteam/plugin.cfg")
+window/size/borderless=true
+window/size/always_on_top=true
+window/ios/allow_high_refresh_rate=false
+window/ios/hide_home_indicator=false
+window/ios/hide_status_bar=false
+window/ios/suppress_ui_gesture=false
 
 [physics]
 
@@ -25,10 +31,3 @@ enabled=PackedStringArray("res://addons/godotsteam/plugin.cfg")
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-
-[steam]
-
-initialization/app_id=0
-initialization/initialize_on_startup=false
-initialization/embed_callbacks=false
-multiplayer_peer/max_channels=4
